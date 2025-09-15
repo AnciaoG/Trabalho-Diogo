@@ -2,11 +2,15 @@
 const express = require('express');
 const router = express.Router();
 
-const AuthController = require('../controllers/AuthController');
-const ProductController = require('../controllers/ProductController');
-const ReservationController = require('../controllers/ReservationController');
-const CommentController = require('../controllers/CommentController');
+const HomeController = require('../controllers/HomeController');
+const AuthController = require('../controllers/UserController');
+const ProductController = require('../controllers/ProdutoController');
+const ReservationController = require('../controllers/ReservaController');
+const CommentController = require('../controllers/ComentarioController');
 const AdminController = require('../controllers/AdminController');
+
+//Principal
+router.get('/', HomeController.index);
 
 // Autenticação
 router.get('/login', AuthController.showLoginPage);

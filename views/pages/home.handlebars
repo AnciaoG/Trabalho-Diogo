@@ -1,0 +1,36 @@
+{{> header }}
+
+<div class="container mt-4">
+  <!-- Parte 3: Produtos aleatórios -->
+  <h2 class="mb-3">Produtos em destaque</h2>
+  <div class="row">
+    {{#each products}}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <p class="card-text fw-bold">R$ {{this.price}}</p>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <!-- Parte 4: Lojas aleatórias -->
+  <h2 class="mt-5 mb-3">Lojas Cadastradas</h2>
+  <div class="row">
+    {{#each stores}}
+      <div class="col-md-3 mb-3">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.email}}</p>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+{{> footer }}

@@ -1,18 +1,16 @@
-const db = require('../config/Banco.js');
-
 module.exports = class Product {
-  static async create(title, description, price, storeId) {
-    return db.execute(
+  static async create(pool, title, description, price, storeId) {
+    return pool.execute(
       'INSERT INTO products (title, description, price, store_id) VALUES (?, ?, ?, ?)',
       [title, description, price, storeId]
     );
   }
 
-  static async findAll() {
-    return db.execute('SELECT * FROM products');
+  static async findAll(pool) {
+    return pool.execute('SELECT * FROM products');
   }
 
-  static async deleteById(id) {
-    return db.execute('DELETE FROM products WHERE id = ?', [id]);
+  static async deleteById(pool, id) {
+    return pool.execute('DELETE FROM products WHERE id = ?', [id]);
   }
 };
